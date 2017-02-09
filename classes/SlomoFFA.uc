@@ -1,8 +1,18 @@
-class EBanFFA extends AOCFFA;
+class SlomoFFA extends AOCFFA;
 
 function StartRound(){
     super.StartRound();
-	WorldInfo.Game.SetGameSpeed(10.0);
+	WorldInfo.Game.SetGameSpeed(10000.0);
+}
+
+function SetGameSpeed(Float T)
+{
+	local float UTTimeDilation;
+     super.SetGameSpeed(T);	
+	 UTTimeDilation = bConsoleServer ? 0.95 : 1.05;
+	 GameSpeed = FMax(T, 0.00001);
+	 WorldInfo.TimeDilation = UTTimeDilation * GameSpeed;
+	 SetTimer(WorldInfo.TimeDilation, true);
 }
 
 
@@ -17,5 +27,5 @@ DefaultProperties
 {
 	ModDisplayString="SLOMO"
 
-	// PlayerControllerClass=class'EBanFFAPlayerController'
+	PlayerControllerClass=class'SlomoFFAPlayerController'
 }
