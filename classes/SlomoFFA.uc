@@ -25,7 +25,7 @@ static event class<GameInfo> SetGameType(string MapName, string Options, string 
 
 DefaultProperties
 {
-	ModDisplayString="SLOMO"
+	ModDisplayString="SLM"
 
 	PlayerControllerClass=class'SlomoFFAPlayerController'
 }
